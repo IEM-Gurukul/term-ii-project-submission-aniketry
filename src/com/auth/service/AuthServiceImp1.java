@@ -1,14 +1,15 @@
 package com.auth.service;
 
+import com.auth.exception.InvalidUserException;
 import com.auth.model.User;
 import com.auth.util.FileUtil;
 import java.util.HashMap;
 
-public class AuthServiceImpl implements AuthService {
+public class AuthServiceImp1 implements AuthService {
 
     private HashMap<String, String> users = new HashMap<>();
 
-    public AuthServiceImpl() {
+    public AuthServiceImp1() {
         users = FileUtil.loadUsers();
     }
     public boolean userExists(String username) 
@@ -17,8 +18,14 @@ public class AuthServiceImpl implements AuthService {
     }
       @Override
     public void register(User user) throws Exception {
-        if (users.containsKey(user.getUsername())) {
-            throw new Exception("User already exists!");
+        if (user.getUsername() == null || user.getUsername().isEmpty()) 
+        {
+        throw new InvalidUserException("Username cannot be empty");
+        }
+
+        if (users.containsKey(user.getUsername())) 
+        {
+        throw new InvalidUserException("User already exists");
         }
 
         users.put(user.getUsername(), user.getPassword());
