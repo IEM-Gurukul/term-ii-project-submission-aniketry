@@ -2,7 +2,7 @@ package com.auth.main;
 
 import com.auth.model.User;
 import com.auth.service.AuthService;
-import com.auth.service.AuthServiceImpl;
+import com.auth.service.AuthServiceImp1;
 import java.util.Scanner;
 
 public class Main {
@@ -10,12 +10,17 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         Scanner sc = new Scanner(System.in);
-        AuthService service = new AuthServiceImpl();
+        AuthService service = new AuthServiceImp1();
 
-        while (true) {
+        while (true) 
+        {
 
-            System.out.println("\n1. Register\n2. Login\n3. Exit");
-            System.out.print("Enter choice: ");
+            System.out.println("\n~~~~~~~~~ PASSWORD AUTHENTICATION SYSTEM~~~~~~~~~~~");
+            System.out.println("1) Register New User");
+            System.out.println("2) Login Existing User");
+            System.out.println("3) Exit");
+            System.out.println("~~~~~~~~~~~~~END~~~~~~~~~~~~~~~~");
+            System.out.print("Enter your choice: ");
 
             int choice = sc.nextInt();
             sc.nextLine(); // clear buffer
