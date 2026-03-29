@@ -11,6 +11,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         AuthService service = new AuthServiceImp1();
+        System.out.println(" Welcome to my Password Authentication System!! ");
 
         while (true) 
         {
@@ -53,7 +54,7 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.println("Exiting...");
+                    System.out.println("Thank you for using the system. || Goodbye ||");
                     sc.close();
                     return;
 
