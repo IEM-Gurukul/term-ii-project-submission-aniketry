@@ -11,8 +11,11 @@ public class AuthServiceImpl implements AuthService {
     public AuthServiceImpl() {
         users = FileUtil.loadUsers();
     }
-
-    @Override
+    public boolean userExists(String username) 
+    {
+        return users.containsKey(username);
+    }
+      @Override
     public void register(User user) throws Exception {
         if (users.containsKey(user.getUsername())) {
             throw new Exception("User already exists!");
