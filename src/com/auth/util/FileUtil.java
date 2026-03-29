@@ -3,14 +3,17 @@ package com.auth.util;
 import java.io.*;
 import java.util.HashMap;
 
-public class FileUtil {
+public class FileUtil
+{
 
     private static final String FILE_NAME = "users.txt";
 
-    public static void saveUsers(HashMap<String, String> users) throws IOException {
+    public static void saveUsers(HashMap<String, String> users) throws IOException 
+    {
         BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME));
 
-        for (String username : users.keySet()) {
+        for (String username : users.keySet()) 
+        {
             writer.write(username + "," + users.get(username));
             writer.newLine();
         }
@@ -19,10 +22,12 @@ public class FileUtil {
         System.out.println("User data saved successfully");
     }
 
-    public static HashMap<String, String> loadUsers() {
+    public static HashMap<String, String> loadUsers()
+    {
         HashMap<String, String> users = new HashMap<>();
 
-        try {
+        try 
+        {
             BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME));
             String line;
 
@@ -32,8 +37,11 @@ public class FileUtil {
             }
 
             reader.close();
-        } catch (IOException e) {
-            System.out.println("No previous data found.");
+            System.out.println("User data loaded successfully");
+        }
+        catch (IOException e) 
+        {
+            System.out.println("No user data found.Starting again.....");
         }
 
         return users;
