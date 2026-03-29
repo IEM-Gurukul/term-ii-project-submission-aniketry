@@ -16,6 +16,7 @@ public class FileUtil {
         }
 
         writer.close();
+        System.out.println("User data saved successfully");
     }
 
     public static HashMap<String, String> loadUsers() {
